@@ -24,6 +24,7 @@ public class LoginTest extends BaseTest {
 	public void Login() {
 		HomePage hp = new HomePage(driver); // enter to the site and click login
 		hp.clickOnSignin();
+		// test git
 
 		MyAccountEnterPage maep = new MyAccountEnterPage(driver); // login page
 		maep.sendEmail(Configuration.readProperty("email"));
