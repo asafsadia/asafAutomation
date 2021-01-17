@@ -9,12 +9,15 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import com.beust.jcommander.Parameter;
@@ -28,14 +31,28 @@ public class BaseTest {
 
 	WebDriver driver;
 
-	
+	@Parameters({ "browser" })
 	@BeforeClass(description = "initializing driver and navigating to tested site url")
-	public void setup(ITestContext testContext) {
-		// System.setProperty("webdriver.chrome.driver","C:\\automation\\drivers\\chromedriver.exe");
-		WebDriverManager.chromedriver().setup();
-		//WebDriverManager.firefoxdriver().setup();
-		//driver = new FirefoxDriver();
-		driver = new ChromeDriver();
+	public void setup(@Optional("Chrome") String browser, ITestContext testContext) {
+		switch (browser) {
+		case "Chrome":
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
+			break;
+		case "Firefox":
+			WebDriverManager.firefoxdriver().setup();
+			driver = new FirefoxDriver();
+			break;
+		case "explorer":
+			WebDriverManager.iedriver().setup();
+			InternetExplorerOptions capabilities = new InternetExplorerOptions();
+			capabilities.ignoreZoomSettings();
+			driver = new InternetExplorerDriver(capabilities);
+			break;
+		default:
+			throw new IllegalArgumentException("no such browser " + browser);
+		}
+
 		driver.manage().window().maximize();
 		testContext.setAttribute("WebDriver", this.driver); // take screen shot
 		driver.get(utils.Configuration.readProperty("TestedSiteUrl"));
