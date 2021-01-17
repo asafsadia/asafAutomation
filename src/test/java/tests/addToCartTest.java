@@ -19,7 +19,6 @@ import pageObject.ShoppingCartSummaryPage;
 
 @Story("this test add product to the cart and go to check out")
 public class addToCartTest extends BaseTest {
-
 	@Severity(SeverityLevel.NORMAL)
 	@Story("select product \"Printed Dress\" from the list and add to cart")
 	@Test(priority = 1, description = "add product to your list")

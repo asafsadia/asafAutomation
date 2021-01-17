@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage {
-
 	@FindBy(css = ".header_user_info > a")
 	private WebElement signinBtn; // click on sign in button
 	@FindBy(css = ".button.ajax_add_to_cart_button.btn.btn-default")

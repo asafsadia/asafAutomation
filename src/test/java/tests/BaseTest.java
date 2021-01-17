@@ -52,22 +52,19 @@ public class BaseTest {
 		default:
 			throw new IllegalArgumentException("no such browser " + browser);
 		}
-
 		driver.manage().window().maximize();
 		testContext.setAttribute("WebDriver", this.driver); // take screen shot
 		driver.get(utils.Configuration.readProperty("TestedSiteUrl"));
 		AllureAttachment.attachURL(" http://automationpractice.com/index.php");
 	}
 
-//	@AfterClass(description = "closing driver")
-//	public void tearDone() {
-//		driver.quit();
-//	}
+	@AfterClass(description = "closing driver")
+	public void tearDone() {
+		driver.quit();
+	}
 
-	/*
-	 * This method will run after watch test, it will take screen shot only for
-	 * tests that failed
-	 */
+	// This method will run after watch test, it will take screen shot only for
+	// tests that failed
 	@AfterMethod
 	public void failedTest(ITestResult result) {
 		// check if the test failed

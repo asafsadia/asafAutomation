@@ -4,8 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class ProductPage extends BasePage{
-	
+public class ProductPage extends BasePage {
 	@FindBy(css = "#quantity_wanted")
 	private WebElement quantityFill;
 	@FindBy(css = "#group_1")
@@ -18,26 +17,25 @@ public class ProductPage extends BasePage{
 	private WebElement ing1;
 	@FindBy(css = "thumb_8")
 	private WebElement img2;
-	@FindBy(css = "[title='Continue shopping']")  
+	@FindBy(css = "[title='Continue shopping']")
 	private WebElement continueShoppingBtn; // continue Shopping Button
 	@FindBy(css = ".icon-home")
 	private WebElement home;
 	@FindBy(css = "[itemprop='name']")
 	private WebElement productTitl;
-	
 
 	public ProductPage(WebDriver driver) {
 		super(driver);
 	}
-	
+
 	public String getTitle() {
 		return getText(productTitl);
 	}
-	
+
 	public void homeBtn() {
 		click(home);
 	}
-	
+
 	public void editProduct(String quantity, String value) {
 		js.executeScript("window.scrollBy(0,200)");
 		sleep(500);
@@ -51,17 +49,5 @@ public class ProductPage extends BasePage{
 		click(continueShoppingBtn);
 		sleep(500);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

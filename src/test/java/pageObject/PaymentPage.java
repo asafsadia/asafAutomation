@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class PaymentPage extends BasePage{
-	
 	@FindBy(css = "#product_1_5_0_424111 > td.cart_quantity.text-center")
 	private WebElement productQty1;
 	@FindBy(css = "#product_5_25_0_424111 > td.cart_quantity.text-center > span")

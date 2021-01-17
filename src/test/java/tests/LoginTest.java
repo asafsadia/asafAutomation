@@ -11,21 +11,17 @@ import pageObject.MyAccountPage;
 import utils.Configuration;
 
 public class LoginTest extends BaseTest {
-	
 	// log out get title
 	private String Title = "AUTHENTICATION"; 
-
 	/*
 	 * this test check the login process and forgot your password process
 	 */
-
 	// log in to your account and get the title
 	@Test(priority = 1, description = "log in whit valid email and password")
 	public void Login() {
 		HomePage hp = new HomePage(driver); // enter to the site and click login
 		hp.clickOnSignin();
-		// test git
-
+		
 		MyAccountEnterPage maep = new MyAccountEnterPage(driver); // login page
 		maep.sendEmail(Configuration.readProperty("email"));
 		maep.sendPassword(Configuration.readProperty("password"));
@@ -36,7 +32,6 @@ public class LoginTest extends BaseTest {
 		// Validation
 		Assert.assertEquals(actual, expected);
 		System.out.println(actual);
-		 // sign out from my account
 	}
 
 	// log out from your account
@@ -71,8 +66,6 @@ public class LoginTest extends BaseTest {
 	// check the forgot your password process
 	@Test(priority = 4, description = "forgot your password")
 	public void forgotYourPassword() {
-//		HomePage hp = new HomePage(driver); // enter to the site and click login
-//		hp.clickOnSignin();  // if you need to run only this test Cancel comment
 		MyAccountEnterPage maep = new MyAccountEnterPage(driver);
 		maep.forgotYourPasswordBtn(); // click on forgot your password link
 

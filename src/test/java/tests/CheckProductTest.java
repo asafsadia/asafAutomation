@@ -10,7 +10,6 @@ import pageObject.PrintedDressPage;
 import pageObject.SummerDressesProductPage;
 
 public class CheckProductTest extends BaseTest {
-
 	// Validation Information //
 	private final String title = "Printed Dress";
 	private final String comment = "Your comment has been added and will be available once approved by a moderator";
@@ -22,7 +21,6 @@ public class CheckProductTest extends BaseTest {
 	/*
 	 * this test is testing the information of the product
 	 */
-
 	@Test(priority = 1, description = "check content form product")
 	public void productTest() {
 		// choose product from the list
@@ -34,11 +32,6 @@ public class CheckProductTest extends BaseTest {
 
 		PrintedDressPage pdp = new PrintedDressPage(driver);
 		Assert.assertEquals(pdp.getTitle(), title);
-//		pdp.writeReview("A gift for my wife", "The is an excellent product");  //Field not found on the page
-//		Assert.assertEquals(pdp.getComment(), comment);
-//		pdp.alertOK();
-//		System.out.println("comment: " + comment);
-		// Validation
 		pdp = new PrintedDressPage(driver);
 		Assert.assertEquals(pdp.productDescription(), description);
 		pdp.goToHome();
@@ -57,7 +50,6 @@ public class CheckProductTest extends BaseTest {
 		bpp.getInfo();
 		Assert.assertEquals(bpp.getInfo(), bInfo);
 		bpp.goToHome();
-
 	}
 
 	@Test(priority = 3, description = "check content form product")
@@ -71,7 +63,5 @@ public class CheckProductTest extends BaseTest {
 
 		System.out.println("Actual: " + sdpp.getThereAreProducts());
 		System.out.println("Showing: " + sdpp.getShowingProduct());
-
 	}
-
 }

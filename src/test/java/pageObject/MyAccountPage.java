@@ -4,8 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class MyAccountPage extends BasePage{
-	
+public class MyAccountPage extends BasePage {
 	@FindBy(css = ".page-heading")
 	private WebElement titlePage;
 	@FindBy(css = ".logout")
@@ -14,11 +13,11 @@ public class MyAccountPage extends BasePage{
 	public MyAccountPage(WebDriver driver) {
 		super(driver);
 	}
-	
+
 	public void signOut() {
 		click(logOutBtn);
 	}
-	
+
 	public String getTitle() {
 		return getText(titlePage);
 	}

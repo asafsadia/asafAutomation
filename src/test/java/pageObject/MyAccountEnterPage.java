@@ -7,8 +7,7 @@ import org.testng.annotations.DataProvider;
 
 import utils.Excel;
 
-public class MyAccountEnterPage extends BasePage{
-	
+public class MyAccountEnterPage extends BasePage {
 	@FindBy(css = "#email")
 	private WebElement emailFild; // enter email
 	@FindBy(css = "#passwd")
@@ -18,82 +17,59 @@ public class MyAccountEnterPage extends BasePage{
 	@FindBy(css = ".lost_password.form-group > a")
 	private WebElement forgotYourPasswordBtn;
 	@FindBy(css = ".page-heading")
-	private WebElement getTitle; // check the title for this page 
+	private WebElement getTitle; // check the title for this page
 	@FindBy(css = ".alert.alert-danger")
-	private WebElement geterrorMessage; // get error message after entering an incorrect email and password 
+	private WebElement geterrorMessage; // get error message after entering an incorrect email and password
 	@FindBy(css = ".logout")
 	private WebElement logOutBtn;
-	
 
 	public MyAccountEnterPage(WebDriver driver) {
 		super(driver);
 	}
-	
+
 	public void signOut() {
 		click(logOutBtn);
 	}
-	
+
 	// get the error message
 	public String getErrorMessage() {
 		return getText(geterrorMessage);
 	}
-	
+
 	// get the title
 	public String getTitle() {
 		return getText(getTitle);
 	}
-	
+
 	// forgot your password button
 	public void forgotYourPasswordBtn() {
 		click(forgotYourPasswordBtn);
 	}
-	
-	// send email from data/config.propertise  
+
+	// send email from data/config.propertise
 	public void sendEmail(String email) {
-		fillText(emailFild, email);	
+		fillText(emailFild, email);
 	}
-	
+
 	// send password from data/config.propertise
 	public void sendPassword(String password) {
 		fillText(passwordFild, password);
 		click(signinBtn);
 	}
-	
+
 	// login whit valid email and password
 	public void login(String email, String password) {
 		fillText(emailFild, email);
 		fillText(passwordFild, password);
-		click(signinBtn);	
+		click(signinBtn);
 	}
-	
+
 	@DataProvider
-	public Object[][] getDataFromExcel(){                          // src\test\resources\test\resources\data
+	public Object[][] getDataFromExcel() { // src\test\resources\test\resources\data
 		String excelPath = System.getProperty("user.dir") + "/src/test/resources/test/resources/data/input.xlsx";
 		System.out.println(excelPath);
 		Object[][] table = Excel.getTableArray(excelPath, "Login");
 		return table;
-
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }
