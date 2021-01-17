@@ -9,7 +9,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /* Read data from Excel file */
 public class Excel {
-
 	private static XSSFSheet ExcelWSheet;
 	private static XSSFWorkbook ExcelWBook;
 	private static XSSFCell Cell;
@@ -45,12 +44,11 @@ public class Excel {
 					for (int c = 0; c < cells; c++) {
 						Cell = row.getCell(c);
 						if (Cell != null) {
-							// add string value in cell to tabArray	
+							// add string value in cell to tabArray
 							tabArray[r - 1][c] = Cell.getStringCellValue();
 						}
 					}
 				}
-
 			}
 		} catch (Exception e) {
 			System.out.println("Failure during attempt to read Excel file:");

@@ -7,13 +7,12 @@ import java.util.Properties;
 
 /* Read data from config.properties file */
 public class Configuration {
-
 	// variable that will include one instance of the class
 	private static Configuration configInstance = null;
 	private static Properties prop;
 
 	// private constructor
-	private Configuration() {                                      //.\\src\\test\\resources\\test\\resources\\data\\config.properties
+	private Configuration() {
 		try (InputStream input = new FileInputStream(".\\src\\test\\resources\\data\\config.properties")) {
 			prop = new Properties();
 			// load a properties file
@@ -31,7 +30,6 @@ public class Configuration {
 		}
 		// get the property value
 		value = prop.getProperty(key);
-
 		return value;
 	}
 }

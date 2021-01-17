@@ -9,7 +9,6 @@ import org.testng.TestListenerAdapter;
 import io.qameta.allure.Attachment;
 
 public class ListenerClass extends TestListenerAdapter {
-
 	// this class take a Screen shot after test is fails and work whit allure
 	@Attachment(value = "Page Screenshot", type = "image/png", fileExtension = ".png")
 	static byte[] attachScreenshot(WebDriver driver) {
