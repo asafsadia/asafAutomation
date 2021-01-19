@@ -11,7 +11,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -20,11 +19,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-import com.beust.jcommander.Parameter;
-import com.google.common.collect.ImmutableMap;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
-import io.opentelemetry.internal.Utils;
 import utilities.AllureAttachment;
 
 public class BaseTest {
