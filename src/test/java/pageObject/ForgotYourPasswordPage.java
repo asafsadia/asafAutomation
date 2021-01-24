@@ -9,8 +9,7 @@ public class ForgotYourPasswordPage extends BasePage {
 	private WebElement emailAddress;
 	@FindBy(css = ".submit > .btn.btn-default.button.button-medium") // click on retrieve password Button
 	private WebElement retrievepasswordBtn;
-	
-	@FindBy(css = ".alert.alert-danger li") // get the message
+	@FindBy(css = ".alert.alert-success") // get the message
 	private WebElement errorMessageForGotPassword;
 
 	public ForgotYourPasswordPage(WebDriver driver) {

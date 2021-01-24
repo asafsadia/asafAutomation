@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class MyAccountPage extends BasePage {
-	@FindBy(css = ".page-heading")
+	@FindBy(css = "#center_column h1")
 	private WebElement titlePage;
 	@FindBy(css = ".logout")
 	private WebElement logOutBtn;

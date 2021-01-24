@@ -73,10 +73,10 @@ public class LoginTest extends BaseTest {
 		maep.forgotYourPasswordBtn(); // click on forgot your password link
 
 		ForgotYourPasswordPage fypp = new ForgotYourPasswordPage(driver); // enter email
-		fypp.forgotYourPassword("asaf@gmail.com");
+		fypp.forgotYourPassword(" asafsadia400@gmail.com");
 
 		String actual = fypp.geterrorMessageForGotPassword(); // Validation
-		String expected = "There is no account registered for this email address.";
+		String expected = "A confirmation email has been sent to your address: asafsadia400@gmail.com";
 		// Validation
 		Assert.assertEquals(actual, expected);
 		System.out.println("error message: " + actual);
