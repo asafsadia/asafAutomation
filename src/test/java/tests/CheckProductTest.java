@@ -2,13 +2,17 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import pageObject.BlousesPage;
 import pageObject.BlouseProductPage;
 import pageObject.EveningDressesPage;
 import pageObject.HomePage;
 import pageObject.PrintedDressPage;
 import pageObject.SummerDressesProductPage;
-
+@Story("this test is testing the information of the product")
 public class CheckProductTest extends BaseTest {
 	// Validation Information //
 	private final String title = "Printed Dress";
@@ -18,12 +22,10 @@ public class CheckProductTest extends BaseTest {
 	private final String bInfo = "Short sleeved blouse with feminine draped sleeve detail.";
 	private final String SummerDressesT = "SUMMER DRESSES ";
 
-	/*
-	 * this test is testing the information of the product
-	 */
+	@Severity(SeverityLevel.NORMAL)
+	@Story("choose product from the list")
 	@Test(priority = 1, description = "check content form product")
 	public void productTest() {
-		// choose product from the list
 		HomePage hp = new HomePage(driver);
 		hp.openWomenList("Evening Dresses");
 
@@ -37,9 +39,10 @@ public class CheckProductTest extends BaseTest {
 		pdp.goToHome();
 	}
 
+	@Severity(SeverityLevel.NORMAL)
+	@Story("choose product from the list")
 	@Test(priority = 2, description = "check content form product")
 	public void productTest2() {
-		// choose product from the list
 		HomePage hp = new HomePage(driver);
 		hp.openWomenList("Blouses");
 		BlousesPage bp = new BlousesPage(driver);
@@ -52,9 +55,10 @@ public class CheckProductTest extends BaseTest {
 		bpp.goToHome();
 	}
 
+	@Severity(SeverityLevel.NORMAL)
+	@Story("choose product from the list")
 	@Test(priority = 3, description = "check content form product")
 	public void productTest3() {
-		// choose product from the list
 		HomePage hp = new HomePage(driver);
 		hp.openDressesList("SUMMER DRESSES");
 		// Validation
