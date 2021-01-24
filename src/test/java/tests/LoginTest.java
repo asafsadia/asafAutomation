@@ -73,8 +73,7 @@ public class LoginTest extends BaseTest {
 		fypp.forgotYourPassword("asaf@gmail.com");
 
 		String actual = fypp.geterrorMessageForGotPassword(); // Validation
-		String expected = "There is 1 error "
-				        + "There is no account registered for this email address.";
+		String expected = "There is no account registered for this email address.";
 		// Validation
 		Assert.assertEquals(actual, expected);
 		System.out.println("error message: " + actual);

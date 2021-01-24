@@ -75,11 +75,6 @@ public class addToCartTest extends BaseTest {
 		sp.checkOut();
 
 		PaymentPage pp = new PaymentPage(driver);
-		String actual = pp.Qty();
-		String expected = "8";
-		// Validation
-		Assert.assertEquals(actual, expected);
-		System.out.println("Total price: " + pp.total());
 		pp.payBycheck();
 
 		OrderSummaryPage osp = new OrderSummaryPage(driver);
