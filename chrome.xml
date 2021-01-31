@@ -8,8 +8,8 @@
 		<parameter name="baseUrl"
 			value="http://automationpractice.com/index.php" />
 		<classes>
-			<!-- <class name="tests.addToCartTest" />
-			<class name="tests.CheckProductTest" />-->
+			<class name="tests.addToCartTest" />
+			<class name="tests.CheckProductTest" />
 			<class name="tests.LoginTest" />
 		</classes>
 	</test> <!-- Test -->
