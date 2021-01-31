@@ -16,7 +16,7 @@ import utils.Configuration;
 @Story("this test check the login process and forgot your password process")
 public class LoginTest extends BaseTest {
 	private String Title = "AUTHENTICATION"; // log out get title 
-	@Severity(SeverityLevel.NORMAL)
+	@Severity(SeverityLevel.CRITICAL)
 	@Story(" log in to your account")
 	@Test(priority = 1, description = "log in whit valid email and password")
 	public void Login() {
@@ -29,7 +29,7 @@ public class LoginTest extends BaseTest {
 
 		MyAccountPage map = new MyAccountPage(driver); // Validation
 		String actual = map.getTitle();
-		String expected = "MY ACCOUNT";
+		String expected = "AUTHENTICATION";
 		// Validation
 		Assert.assertEquals(actual, expected);
 		System.out.println(actual);

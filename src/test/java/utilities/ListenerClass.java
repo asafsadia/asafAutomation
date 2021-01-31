@@ -19,7 +19,7 @@ public class ListenerClass extends TestListenerAdapter {
 	public void onTestFailure(ITestResult result) {
 		Object webDriverAttribute = result.getTestContext().getAttribute("WebDriver");
 		if (webDriverAttribute instanceof WebDriver) {
-			attachScreenshot((WebDriver) webDriverAttribute); // get screen shot to allure
+			AllureAttachment.attachScreenshot((WebDriver) webDriverAttribute); // get screen shot to allure
 			AllureAttachment.getPageSource((WebDriver) webDriverAttribute); // get page source to allure
 		}
 	}
