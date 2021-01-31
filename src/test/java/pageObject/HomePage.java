@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import io.qameta.allure.Step;
+
 public class HomePage extends BasePage {
 	@FindBy(css = ".header_user_info > a")
 	private WebElement signinBtn; // click on sign in button
@@ -40,7 +42,7 @@ public class HomePage extends BasePage {
 		super(driver);
 	}
 
-	// choose category from dresses list
+	@Step("choose category from dresses list: {name}")
 	public void openDressesList(String name) {
 		moveTo(dressesdropDoneBtn);
 		sleep(1000);
@@ -52,7 +54,7 @@ public class HomePage extends BasePage {
 		}
 	}
 
-	// choose category from women list
+	@Step("choose category from women list: {name}")
 	public void openWomenList(String name) {
 		moveTo(womendropDoneBtn);
 		sleep(1000);
@@ -64,25 +66,27 @@ public class HomePage extends BasePage {
 		}
 	}
 
+	@Step("go to cart")
 	public void cart() {
 		click(cart);
 	}
 
+	@Step("click on women btn")
 	public void clickOnWomenBtn() {
 		click(womenBtn);
 	}
 
-	// sign in button
+	@Step("sign in button")
 	public void clickOnSignin() {
 		click(signinBtn);
 	}
 
-	// women button
+	@Step("women button")
 	public void womenButton() {
 		moveTo(dressesBtn);
 	}
 
-	// select item by name from list on the home page
+	@Step("selecting item {name}  from list on the home page")
 	public void chooseItem(String name) {
 		js.executeScript("window.scrollBy(0,700)");
 		List<WebElement> list = driver.findElements(By.cssSelector("[itemprop='name'] > a"));

@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import io.qameta.allure.Step;
+
 public class ProductPage extends BasePage {
 	@FindBy(css = "#quantity_wanted")
 	private WebElement quantityFill;
@@ -36,6 +38,7 @@ public class ProductPage extends BasePage {
 		click(home);
 	}
 
+	@Step("edit product {quantity} {value}")
 	public void editProduct(String quantity, String value) {
 		js.executeScript("window.scrollBy(0,200)");
 		sleep(500);

@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import io.qameta.allure.Step;
+
 public class ShoppingCartSummaryPage extends BasePage {
 	@FindBy(css = "#summary_products_quantity") // product contains
 	private WebElement cartContainsText;
@@ -14,7 +16,7 @@ public class ShoppingCartSummaryPage extends BasePage {
 		super(driver);
 	}
 
-	// return product contains
+	@Step("return product contains")
 	public String getCartContains() {
 		return getText(cartContainsText);
 	}

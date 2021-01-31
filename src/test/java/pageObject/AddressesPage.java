@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import io.qameta.allure.Step;
+
 public class AddressesPage extends BasePage {
 	@FindBy(css = "[name='message']")
 	private WebElement commentField;
@@ -14,12 +16,14 @@ public class AddressesPage extends BasePage {
 		super(driver);
 	}
 
+	@Step("send {text}")
 	public void sendText(String text) {
 		js.executeScript("window.scrollBy(0,400)");
 		fillText(commentField, text);
 	}
 
-	public void clickCkeckOut() {
+	@Step("click check out")
+	public void clickCheckOut() {
 		click(checkOutBtn);
 	}
 

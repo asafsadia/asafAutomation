@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import io.qameta.allure.Step;
+
 public class BlouseProductPage extends BasePage {
 	@FindBy(css = "#short_description_content > p")
 	private WebElement info;// get info
@@ -34,13 +36,13 @@ public class BlouseProductPage extends BasePage {
 		click(closeError);
 	}
 
-	// click on add to wish list
+	@Step("click on add to wish list")
 	public void clickOnAdd() {
 		js.executeScript("window.scrollBy(0,400)");
 		click(addToWishList);
 	}
 
-	// get info from the product
+	@Step("get info from the product")
 	public String getInfo() {
 		return getText(info);
 	}

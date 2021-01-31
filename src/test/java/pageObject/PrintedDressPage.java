@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import io.qameta.allure.Step;
+
 public class PrintedDressPage extends BasePage {
 	@FindBy(css = ".col-xs-12.col-sm-4 > h1")
 	private WebElement PrintedDressTitle;
@@ -36,17 +38,17 @@ public class PrintedDressPage extends BasePage {
 		return getText(printDescription);
 	}
 
-	// print the comment after you wrote one
+	@Step("print the comment after you wrote one")
 	public String getComment() {
 		return getText(comment);
 	}
 
-	// return title from product page
+	@Step("return title from product page")
 	public String getTitle() {
 		return getText(PrintedDressTitle);
 	}
 
-	// write a review
+	@Step("write a review {title} {comment}")
 	public void writeReview(String title, String comment) {
 		click(writeReviewBtn);
 		fillText(titleFiled, title);

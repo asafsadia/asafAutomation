@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.annotations.DataProvider;
 
+import io.qameta.allure.Step;
 import utils.Excel;
 
 public class MyAccountEnterPage extends BasePage {
@@ -31,7 +32,7 @@ public class MyAccountEnterPage extends BasePage {
 		click(logOutBtn);
 	}
 
-	// get the error message
+	@Step("get the error message")
 	public String getErrorMessage() {
 		return getText(geterrorMessage);
 	}
@@ -41,23 +42,23 @@ public class MyAccountEnterPage extends BasePage {
 		return getText(getTitle);
 	}
 
-	// forgot your password button
+	@Step("forgot your password button")
 	public void forgotYourPasswordBtn() {
 		click(forgotYourPasswordBtn);
 	}
 
-	// send email from data/config.propertise
+	@Step("send email from data/config.propertise {email}")
 	public void sendEmail(String email) {
 		fillText(emailFild, email);
 	}
 
-	// send password from data/config.propertise
+	@Step("send password from data/config.propertise {password}")
 	public void sendPassword(String password) {
 		fillText(passwordFild, password);
 		click(signinBtn);
 	}
 
-	// login whit valid email and password
+	@Step("login whit valid {email} and {password}")
 	public void login(String email, String password) {
 		fillText(emailFild, email);
 		fillText(passwordFild, password);

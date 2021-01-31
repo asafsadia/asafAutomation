@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import io.qameta.allure.Step;
+
 public class ForgotYourPasswordPage extends BasePage {
 	@FindBy(css = "#email") // enter your email address
 	private WebElement emailAddress;
@@ -16,6 +18,7 @@ public class ForgotYourPasswordPage extends BasePage {
 		super(driver);
 	}
 
+	@Step("forgot Your Password {email}")
 	public void forgotYourPassword(String email) {
 		fillText(emailAddress, email);
 		click(retrievepasswordBtn);

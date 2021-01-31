@@ -1,9 +1,7 @@
 package tests;
 
 import org.testng.Assert;
-
 import org.testng.annotations.Test;
-
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
@@ -64,11 +62,11 @@ public class addToCartTest extends BaseTest {
 		scsp.clickCheckOut();
 
 		AuthenticationPage ap = new AuthenticationPage(driver);
-		ap.fillAlreadtRegistered("asafsadia400@gmail.com", "asaf9966");
+		ap.fillAlreadyRegistered("asafsadia400@gmail.com", "asaf9966");
 
 		AddressesPage adp = new AddressesPage(driver);
 		adp.sendText("This is my order");
-		adp.clickCkeckOut();
+		adp.clickCheckOut();
 
 		ShippingPage sp = new ShippingPage(driver);
 		sp.clickIAgree();

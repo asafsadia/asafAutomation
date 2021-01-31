@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import io.qameta.allure.Step;
+
 public class PaymentPage extends BasePage{
 	@FindBy(css = "#product_1_5_0_424111 > td.cart_quantity.text-center")
 	private WebElement productQty1;
@@ -18,14 +20,14 @@ public class PaymentPage extends BasePage{
 		super(driver);
 	}
 	
-	// Check final product quantity 
+	@Step("Check final product quantity") 
 	public String Qty() {
 		String product1 = getText(productQty1);
 		String product2 = getText(productQty2);
 		return product1+product2;
 	}
 	
-	// check total price
+	@Step("check total price")
 	public String total() {
 		return getText(totalPrice);
 	}
