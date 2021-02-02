@@ -29,7 +29,7 @@ public class LoginTest extends BaseTest {
 
 		MyAccountPage map = new MyAccountPage(driver); // Validation
 		String actual = map.getTitle();
-		String expected = "AUTHENTICATION";
+		String expected = "MY ACCOUNT";
 		// Validation
 		Assert.assertEquals(actual, expected);
 		System.out.println(actual);
@@ -73,10 +73,10 @@ public class LoginTest extends BaseTest {
 		maep.forgotYourPasswordBtn(); // click on forgot your password link
 
 		ForgotYourPasswordPage fypp = new ForgotYourPasswordPage(driver); // enter email
-		fypp.forgotYourPassword(" asafsadia400@gmail.com");
+		fypp.forgotYourPassword("asaf720@gmail.com");
 
 		String actual = fypp.geterrorMessageForGotPassword(); // Validation
-		String expected = "A confirmation email has been sent to your address: asafsadia400@gmail.com";
+		String expected = "A confirmation email has been sent to your address: asaf720@gmail.com";
 		// Validation
 		Assert.assertEquals(actual, expected);
 		System.out.println("error message: " + actual);
