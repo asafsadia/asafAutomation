@@ -14,6 +14,7 @@ import pageObject.PaymentPage;
 import pageObject.ProductPage;
 import pageObject.ShippingPage;
 import pageObject.ShoppingCartSummaryPage;
+import utilities.AllureAttachment;
 
 @Story("this test add product to the cart and go to check out")
 public class addToCartTest extends BaseTest {
@@ -31,6 +32,7 @@ public class addToCartTest extends BaseTest {
 		System.out.println("Product title: " + actual);
 		pp.editProduct("3", "3");
 		pp.homeBtn();
+		AllureAttachment.attachText("add prodect 1 printed dress");
 	}
 
 	@Severity(SeverityLevel.NORMAL)
