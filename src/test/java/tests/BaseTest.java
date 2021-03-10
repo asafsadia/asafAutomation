@@ -1,20 +1,13 @@
 package tests;
 
-import java.io.File;
-import java.io.IOException;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.testng.ITestContext;
-import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
@@ -29,28 +22,34 @@ public class BaseTest {
 	@Parameters({ "browser" })
 	@BeforeClass(description = "initializing driver and navigating to tested site url")
 	public void setup(@Optional("Chrome") String browser, ITestContext testContext) {
-		switch (browser) {
-		case "Chrome":
-			WebDriverManager.chromedriver().driverVersion("89.0.4389.23").setup();
-			driver = new ChromeDriver();
-			break;
-		case "Firefox":
-			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
-			break;
-		case "explorer":
-			WebDriverManager.iedriver().setup();
-			InternetExplorerOptions capabilities = new InternetExplorerOptions();
-			capabilities.ignoreZoomSettings();
-			driver = new InternetExplorerDriver(capabilities);
-			break;
-		default:
-			throw new IllegalArgumentException("no such browser " + browser);
-		}
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\automation\\drivers\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		testContext.setAttribute("WebDriver", this.driver); // take screen shot
-		driver.get(utils.Configuration.readProperty("TestedSiteUrl"));
-		AllureAttachment.attachURL(" http://automationpractice.com/index.php");
+		driver.get("http://automationpractice.com/index.php");
+		
+//		switch (browser) {
+//		case "Chrome":
+//			WebDriverManager.chromedriver().driverVersion("89.0.4389.23").setup();
+//			driver = new ChromeDriver();
+//			break;
+//		case "Firefox":
+//			WebDriverManager.firefoxdriver().setup();
+//			driver = new FirefoxDriver();
+//			break;
+//		case "explorer":
+//			WebDriverManager.iedriver().setup();
+//			InternetExplorerOptions capabilities = new InternetExplorerOptions();
+//			capabilities.ignoreZoomSettings();
+//			driver = new InternetExplorerDriver(capabilities);
+//			break;
+//		default:
+//			throw new IllegalArgumentException("no such browser " + browser);
+//		}
+//		driver.manage().window().maximize();
+//		testContext.setAttribute("WebDriver", this.driver); // take screen shot
+//		driver.get(utils.Configuration.readProperty("TestedSiteUrl"));
+//		AllureAttachment.attachURL("http://automationpractice.com/index.php");
 	}
 
 	@AfterClass(description = "closing driver")
