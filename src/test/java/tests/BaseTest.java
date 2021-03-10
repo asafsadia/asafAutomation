@@ -21,35 +21,30 @@ public class BaseTest {
 
 	@Parameters({ "browser" })
 	@BeforeClass(description = "initializing driver and navigating to tested site url")
-	public void setup(@Optional("Chrome") String browser, ITestContext testContext) {
-		
-		System.setProperty("webdriver.chrome.driver", "C:\\automation\\drivers\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+	public void setup(@Optional("Chrome") String browser, ITestContext testContext) {	
+		switch (browser) {
+		case "Chrome":
+			ChromeDriver cd = new ChromeDriver();
+			//WebDriverManager.chromedriver().driverVersion("89.0.4389.23").setup();
+			driver = new ChromeDriver();
+			break;
+		case "Firefox":
+			WebDriverManager.firefoxdriver().setup();
+			driver = new FirefoxDriver();
+			break;
+		case "explorer":
+			WebDriverManager.iedriver().setup();
+			InternetExplorerOptions capabilities = new InternetExplorerOptions();
+			capabilities.ignoreZoomSettings();
+			driver = new InternetExplorerDriver(capabilities);
+			break;
+		default:
+			throw new IllegalArgumentException("no such browser " + browser);
+		}
 		driver.manage().window().maximize();
-		driver.get("http://automationpractice.com/index.php");
-		
-//		switch (browser) {
-//		case "Chrome":
-//			WebDriverManager.chromedriver().driverVersion("89.0.4389.23").setup();
-//			driver = new ChromeDriver();
-//			break;
-//		case "Firefox":
-//			WebDriverManager.firefoxdriver().setup();
-//			driver = new FirefoxDriver();
-//			break;
-//		case "explorer":
-//			WebDriverManager.iedriver().setup();
-//			InternetExplorerOptions capabilities = new InternetExplorerOptions();
-//			capabilities.ignoreZoomSettings();
-//			driver = new InternetExplorerDriver(capabilities);
-//			break;
-//		default:
-//			throw new IllegalArgumentException("no such browser " + browser);
-//		}
-//		driver.manage().window().maximize();
-//		testContext.setAttribute("WebDriver", this.driver); // take screen shot
-//		driver.get(utils.Configuration.readProperty("TestedSiteUrl"));
-//		AllureAttachment.attachURL("http://automationpractice.com/index.php");
+		testContext.setAttribute("WebDriver", this.driver); // take screen shot
+		driver.get(utils.Configuration.readProperty("TestedSiteUrl"));
+		AllureAttachment.attachURL("http://automationpractice.com/index.php");
 	}
 
 	@AfterClass(description = "closing driver")
