@@ -24,8 +24,8 @@ public class BaseTest {
 	public void setup(@Optional("Chrome") String browser, ITestContext testContext) {	
 		switch (browser) {
 		case "Chrome":
-			WebDriver driver = new ChromeDriver();
-			//WebDriverManager.chromedriver().driverVersion("89.0.4389.23").setup();
+//			WebDriver driver = new ChromeDriver();
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			break;
 		case "Firefox":
