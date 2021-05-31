@@ -37,9 +37,17 @@ public class HomePage extends BasePage {
 	private WebElement dressesdropDoneBtn; // open dresses list
 	@FindBy(css = "#block_top_menu > ul > li:nth-child(2) a")
 	private List<WebElement> dresseslist; // list in side dresses
+	
+	@FindBy(css = "#homeslider > li:nth-child(2) > a")
+	private WebElement shopNow;
 
 	public HomePage(WebDriver driver) {
 		super(driver);
+	}
+	
+	public void clickOnExploratory() {
+	click(shopNow);	
+		
 	}
 
 	@Step("choose category from dresses list: {name}")

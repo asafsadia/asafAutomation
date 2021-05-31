@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="explorer Test">
+<suite name="exploratory Test">
 	<listeners>
 		<listener class-name="utilities.ListenerClass"></listener>  <!-- Screen shot fore allure -->
 	</listeners>
-	<test thread-count="5" name="explorer Test">
-		<parameter name="browser" value="explorer" />
+	<test thread-count="5" name="exploratory chrome Test">
+		<parameter name="browser" value="chrome" />
 		<parameter name="baseUrl" value="http://automationpractice.com/index.php" />
 		<classes>
-			<class name="tests.addToCartTest" />
-			<class name="tests.CheckProductTest" />
-			<class name="tests.LoginTest" />
+			<class name="tests.FunctionalTest" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
