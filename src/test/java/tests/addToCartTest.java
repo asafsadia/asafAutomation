@@ -64,7 +64,7 @@ public class addToCartTest extends BaseTest {
 		scsp.clickCheckOut();
 
 		AuthenticationPage ap = new AuthenticationPage(driver);
-		ap.fillAlreadyRegistered("asafsadia400@gmail.com", "asaf9966");
+		ap.fillAlreadyRegistered("asaf720@gmail.com", "asaf8877");
 
 		AddressesPage adp = new AddressesPage(driver);
 		adp.sendText("This is my order");
