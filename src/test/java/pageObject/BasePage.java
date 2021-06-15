@@ -27,6 +27,19 @@ public class BasePage {
 	public WebDriver getDriver() {
 		return driver;
 	}
+	
+	public void scrollDown(WebElement el) {
+	js.executeScript("arguments[0].scrollIntoView(true);", el);
+}
+	
+//	public void scrollDown() {
+//		js.executeScript("window.scrollBy(0,700)");
+//	}
+	
+	public String getUrl() {
+	String url = driver.getCurrentUrl();
+	return url;
+	}
 
 	// send keys operation
 	public void fillText(WebElement el, String text) {

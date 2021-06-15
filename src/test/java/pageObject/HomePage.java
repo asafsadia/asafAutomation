@@ -37,17 +37,50 @@ public class HomePage extends BasePage {
 	private WebElement dressesdropDoneBtn; // open dresses list
 	@FindBy(css = "#block_top_menu > ul > li:nth-child(2) a")
 	private List<WebElement> dresseslist; // list in side dresses
-	
-	@FindBy(css = "#homeslider > li:nth-child(2) > a")
+	@FindBy(css = "#homeslider > li:nth-child(4) > div > p:nth-child(3) > button")
 	private WebElement shopNow;
+	@FindBy(css = "#htmlcontent_top > ul > li.htmlcontent-item-1.col-xs-4 > a > img")
+	private WebElement cSale;
+	@FindBy(css = "#htmlcontent_top > ul > li.htmlcontent-item-2.col-xs-4 > a > img")
+	private WebElement cSummer;
+	@FindBy(css = ".product_list.grid.row.homefeatured.tab-pane.active")
+	private List<WebElement> listOfPopular;
+
+	@FindBy(css = ".search_query.form-control.ac_input")
+	private WebElement clickSearch;
+	@FindBy(css = ".ajax_cart_no_product")
+	private WebElement clickCart;
 
 	public HomePage(WebDriver driver) {
 		super(driver);
 	}
-	
-	public void clickOnExploratory() {
-	click(shopNow);	
-		
+
+	public void clickCart() {
+		click(clickCart);
+		String url = getUrl();
+		if (url.contains("order")) {
+			back();
+			System.out.println("The test passed");
+		} else {
+			System.out.println("The test false");
+		}
+	}
+
+	public void clickSearch() {
+		click(clickSearch);
+		fillText(clickSearch, "Hi");
+	}
+
+	public void clickSummer() {
+		click(cSummer);
+	}
+
+	public void clickSale() {
+		click(cSale);
+	}
+
+	public void clickShopNow() {
+		click(shopNow);
 	}
 
 	@Step("choose category from dresses list: {name}")
