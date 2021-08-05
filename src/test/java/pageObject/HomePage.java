@@ -45,11 +45,13 @@ public class HomePage extends BasePage {
 	private WebElement cSummer;
 	@FindBy(css = ".product_list.grid.row.homefeatured.tab-pane.active")
 	private List<WebElement> listOfPopular;
-
 	@FindBy(css = ".search_query.form-control.ac_input")
 	private WebElement clickSearch;
 	@FindBy(css = ".ajax_cart_no_product")
 	private WebElement clickCart;
+	
+	@FindBy(css = ".btn.btn-default.button-search")
+	private WebElement searchBtn;
 
 	public HomePage(WebDriver driver) {
 		super(driver);
@@ -66,9 +68,10 @@ public class HomePage extends BasePage {
 		}
 	}
 
-	public void clickSearch() {
+	public void clickSearch(String name) {
 		click(clickSearch);
-		fillText(clickSearch, "Hi");
+		fillText(clickSearch, name);
+		click(searchBtn);
 	}
 
 	public void clickSummer() {

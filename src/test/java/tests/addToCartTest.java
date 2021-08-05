@@ -1,6 +1,7 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
@@ -33,6 +34,7 @@ public class addToCartTest extends BaseTest {
 		pp.editProduct("3", "3");
 		pp.homeBtn();
 		AllureAttachment.attachText("add prodect 1 printed dress");
+		Reporter.log("add product to your list - add product 1", true);
 	}
 
 	@Severity(SeverityLevel.NORMAL)
@@ -49,6 +51,7 @@ public class addToCartTest extends BaseTest {
 		System.out.println("Product title: " + actual);
 		pp.editProduct("5", "2");
 		pp.homeBtn();
+		Reporter.log("add product to your list - add product 2", true);
 	}
 
 	@Severity(SeverityLevel.CRITICAL)
@@ -87,6 +90,7 @@ public class addToCartTest extends BaseTest {
 		OrderConfirmationPage ocp = new OrderConfirmationPage(driver);
 		String message = ocp.getMessage();
 		System.out.println("End off order: " + message);
+		Reporter.log("go to check out", true);
 	}
 
 }
